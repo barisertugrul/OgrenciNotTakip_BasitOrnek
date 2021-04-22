@@ -16,10 +16,13 @@ public class MainClass {
 			System.out.println(i+1 + ". Öðrencinin Bilgileri:");
 			System.out.print("Öðrencinin numarasýný giriniz: ");
 			ogrenciListesi[i].ogr_no = kullaniciGirdisi.nextInt();
+			kullaniciGirdisi.nextLine();
 			System.out.print("Öðrencinin adýný ve soyadýný giriniz: ");
 			ogrenciListesi[i].isim_soyisim = kullaniciGirdisi.next();
+			kullaniciGirdisi.nextLine();
 			System.out.print("Öðrencinin vize puanýný giriniz: ");
 			ogrenciListesi[i].vize = kullaniciGirdisi.nextInt();
+			kullaniciGirdisi.nextLine();
 			System.out.print("Öðrencinin final puanýný giriniz: ");
 			ogrenciListesi[i].final_puani = kullaniciGirdisi.nextInt();
 			i++;
@@ -34,10 +37,10 @@ public class MainClass {
 		System.out.println("****************************************");
 		
 		Sorting siralama = new Sorting();
-		siralama.ogrencileriSirala(ogrenciListesi, 0, ogrenciListesi.length);
-		System.out.format("%10d%25s%10d", "No", "Ýsim-Soyisim", "Geçme Notu");
+		siralama.ogrencileriSirala(ogrenciListesi, 0, ogrenciListesi.length-1);
+		System.out.format("%10s%30s%12s", "No", "Ýsim-Soyisim", "Geçme Notu\n");
 		for(Ogrenci ogrenci:siralama.ogrenciler) {
-			System.out.format("%10d%25s%10d", ogrenci.ogr_no, ogrenci.isim_soyisim, ogrenci.getGecmeNotu());
+			System.out.format("%10d%30s%12f\n", ogrenci.ogr_no, ogrenci.isim_soyisim, ogrenci.getGecmeNotu());
 		}
 		
 		//Öðrenci arama
@@ -47,6 +50,7 @@ public class MainClass {
 		System.out.println("*****************************************");
 
 		System.out.print("Öðrencinin numarasýný giriniz: ");
+		
 		int ogrenciNumarasi = kullaniciGirdisi.nextInt();
 		
 		Searching aramaFormu = new Searching();
